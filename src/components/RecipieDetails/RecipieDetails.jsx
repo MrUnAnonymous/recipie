@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Container, Typography } from '@mui/material'
+import axios from 'axios'
 import './styles.css'
+import { useParams } from 'react-router-dom'
 
 const RecipieDetails = () => {
-  //const url = 'https://api.spoonacular.com/recipes/{id}/information';
+  const { id } = useParams;
+  const url = `https://api.spoonacular.com/recipes/${id}/information`;
+  const [recipeData, setRecipeData] = useState([]);
+  
+  useEffect(() => {
+    const fetchRecipeDetails = async () => {
+      try {
+        const response = await axios.get(url);
+        setRecipeData(response.results);
+      } catch (error) {
+        console.log(error);
+      }
+  };
+  fetchRecipeDetails();
+  });
 
   return (
     <div className='mainContainer'>
@@ -33,7 +49,7 @@ const RecipieDetails = () => {
             Ingredients
           </Typography>
 
-          <Typography gutterBottom variant='subtitle1'>
+          <Typography gutterBottom variant='body1'>
             <ul>
               <li>1 tbsp butter</li>
               <li>about 2 cups frozen cauliflower florets, thawed, cut into bite-sized pieces</li>

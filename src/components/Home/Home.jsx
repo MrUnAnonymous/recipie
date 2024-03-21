@@ -1,53 +1,46 @@
 import React, { useEffect, useState } from "react";
-import {
-  Container,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  Grid,
-  ButtonBase,
-} from "@mui/material";
-import useStyles from "../styles";
-import { useNavigate } from 'react-router-dom'
+import { Container, Card, CardContent, CardMedia, Typography, Grid, ButtonBase } from "@mui/material";
+import useStyles from "./styles";
+import { useNavigate, Link } from 'react-router-dom'
+import axios from "axios";
 
 const Home = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  // let apiKey = "9677c1771941430a9319adec0aaeb4f5";
-  // const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
-  const [recipies, setRecipies] = useState({
+  let apiKey = "9677c1771941430a9319adec0aaeb4f5";
+  const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
+
+  const [recipes, setRecipes] = useState({
     id: '',
     title: '',
     image: ''
   });
   
   const openDetails = () => {
-    navigate('/recipie');
+    navigate(`/${recipes.id}/recipie`);
   };
 
   // useEffect(() => {
   //   const data = async () => {
   //     try { 
-  //       const response = await fetch(url);
-  //       if (!response.ok) {
-  //         throw new Error(`HTTP error: Status ${response.status}`);
-  //       }
-  //       let data = await response.json();
-  //       setRecipies(data.results);
+  //       const response = await axios.get(url);
+  //       setRecipes(response.results);
   //     } catch (error) {
   //       console.log(error);
   //     }
   //   };
   //   data();
-  //   console.log(recipies);
-  // }, []);
- 
+  // });
+  
+  // useEffect(() => {
+  //   console.log(recipes);
+  // }, [recipes]);
+
   return (
     <div className={classes.mainContainer}>
-      <Container maxWidth="lg" className={classes.container}>
+      <Container maxWidth="xl" className={classes.container}>
         <Grid spacing={3} className={classes.mainGrid}>
-          {/* {recipies.map(({recpie, id}) => ( */}
+          {/* {recipes.map(({recpie, id}) => ( */}
             <Grid item xs={12} sm={12} md={6} lg={3} className={classes.cardGrid}>
               
             <ButtonBase component="span" name="test" onClick={openDetails}>
