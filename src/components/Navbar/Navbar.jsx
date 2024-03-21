@@ -7,7 +7,6 @@ const Navbar = () => {
   return (
     <AppBar position='static' style={{ backgroundColor: "#A8DF8EFF" }} className={classes.appBar}>
       <Typography style={{ color: "black", fontWeight: "bold" }} gutterBottom variant="h5" component="h2">Recipie Book</Typography>
-
     </AppBar>
   )
 }
