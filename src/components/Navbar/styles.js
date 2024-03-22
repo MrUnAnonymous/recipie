@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
-        width: "90vw",
+        width: "90%",
         borderRadius: 15,
         margin: '10px 0 0 0',
         display: 'flex',
@@ -11,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
         alignItems: 'center',
         padding: '10px 20px',
     },
+    navContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent:'center',
+        alignItems: 'center',
+    }
 }));
 
 export default useStyles;
