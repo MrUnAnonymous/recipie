@@ -1,4 +1,4 @@
-Deployed Website Link [Link](recipe-omega-nine.vercel.app).
+Deployed Website [Link](recipe-omega-nine.vercel.app).
 
 # Getting Started with Create React App
 
