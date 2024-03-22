@@ -5,7 +5,8 @@ import "./styles.css";
 import { useParams } from "react-router-dom";
 
 const RecipieDetails = () => {
-  let apiKey = "47fd5871843f405c83c87c213a10a0ab";
+  let apiKey = "3377c9f5c068421e8be1db3fa95328ac";
+  //let apiKey = "47fd5871843f405c83c87c213a10a0ab";
   //let apiKey = "9677c1771941430a9319adec0aaeb4f5";
   // let apiKey = "b08a4cbb4d494eac81a0a5aa8fa2a505";
   const { id } = useParams;
@@ -33,7 +34,7 @@ const RecipieDetails = () => {
 
   return (
     <div className="mainContainer">
-      <h1 className="merriweather-black">Recipie</h1>
+      <h1 className="merriweather-black">Recipe</h1>
       {recipeData && (
         <div className="container">
           <img src={recipeData.image} alt="food" className="recipieImage" />
@@ -45,7 +46,7 @@ const RecipieDetails = () => {
               dangerouslySetInnerHTML={{ __html: recipeData.summary }}
               className="poppins-light"
             />
-            
+
             <h4 className="merriweather-regular">Ingredients</h4>
             <p>
               <ul>
@@ -57,7 +58,7 @@ const RecipieDetails = () => {
               </ul>
             </p>
 
-            <h4 className="merriweather-regular">Instructions</h4> 
+            <h4 className="merriweather-regular">Instructions</h4>
             <Typography
               gutterBottom
               variant="body1"
