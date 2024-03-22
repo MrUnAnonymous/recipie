@@ -7,9 +7,9 @@ import axios from "axios";
 const Home = () => {
   const classes = useStyles();
   const navigate = useNavigate();
-  let apiKey = "9677c1771941430a9319adec0aaeb4f5";
+  //let apiKey = "9677c1771941430a9319adec0aaeb4f5";
 
-  //b08a4cbb4d494eac81a0a5aa8fa2a505
+  let apiKey = "b08a4cbb4d494eac81a0a5aa8fa2a505";
 
   const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
 
@@ -23,8 +23,8 @@ const Home = () => {
     const data = async () => {
       try { 
         const response = await axios.get(url);
-        console.log("Response", response);
         setRecipes(response.data.results);
+        console.log("Response", response.data.results);
       } catch (error) {
         console.log(error);
       }
