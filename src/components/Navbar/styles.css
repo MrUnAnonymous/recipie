@@ -1,0 +1,35 @@
+.appBar{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   flex-direction: row;
+   width: 90%;
+   border-radius: 15px;
+    margin: 10px 0 0 0;
+    padding: 10px 20px;
+
+}
+
+.navContainer{
+    height: 70px;
+    background-color: #A8DF8EFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-radius: 20px;
+}
+
+.link {
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.title{
+    font-family: "Merriweather", serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 35px;
+}

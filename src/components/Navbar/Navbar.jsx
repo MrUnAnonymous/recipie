@@ -1,19 +1,13 @@
 import React from 'react'
-import { AppBar, Typography, Link } from '@material-ui/core'
-import useStyles from './styles'
+import './styles.css'
 
 const Navbar = () => {
-  const classes = useStyles();
   return (
-    <div className={classes.navContainer}>
-      <AppBar position='static' style={{ backgroundColor: "#A8DF8EFF" }} className={classes.appBar}>
-        <Typography style={{ color: "black", fontFamily: "Merriweather", fontWeight: "500" }} variant="h5" component="h2">Recipie Book</Typography>
-        <Link href='/' underline='hover'>
-          <Typography variant='body1' style={{ color: "black", fontWeight: "bold" }} className={classes.link}>
-            Home
-          </Typography>
-        </Link>
-      </AppBar>
+    <div className='navContainer'>
+    <header className='appBar'>
+      <h2 className='title'>Recipe Book</h2>
+      <a href='/' className='link'>Home</a>
+    </header>
     </div>
   )
 }

@@ -5,10 +5,8 @@ import "./styles.css";
 import { useParams } from "react-router-dom";
 
 const RecipieDetails = () => {
-  let apiKey = "3377c9f5c068421e8be1db3fa95328ac";
-  //let apiKey = "47fd5871843f405c83c87c213a10a0ab";
-  //let apiKey = "9677c1771941430a9319adec0aaeb4f5";
-  // let apiKey = "b08a4cbb4d494eac81a0a5aa8fa2a505";
+  let apiKey = process.env.REACT_APP_API_KEY;
+
   const { id } = useParams;
   const [recipeData, setRecipeData] = useState(null);
   const ID = window.location.pathname.split("/")[1];
