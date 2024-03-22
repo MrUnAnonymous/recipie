@@ -18,7 +18,6 @@ const useStyles = makeStyles(() => ({
         justifyContent: 'space-around',
         alignItems: 'center',
         flexWrap: 'wrap',
-        width: '100%',
         margin: 0,
         gap: 5,
     },
@@ -32,6 +31,7 @@ const useStyles = makeStyles(() => ({
         borderRadius: '20px',
         maxHeight: '400px',
         minHeight: '150px',
+        minWidth: '150px',
         marginTop: '10px',
     },
     container: {

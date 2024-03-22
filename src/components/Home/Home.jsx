@@ -8,190 +8,55 @@ const Home = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   let apiKey = "9677c1771941430a9319adec0aaeb4f5";
+
+  //b08a4cbb4d494eac81a0a5aa8fa2a505
+
   const url = `https://api.spoonacular.com/recipes/complexSearch?apiKey=${apiKey}`;
 
-  const [recipes, setRecipes] = useState({
-    id: '',
-    title: '',
-    image: ''
-  });
-  
-  const openDetails = () => {
-    navigate(`/${recipes.id}/recipie`);
+  const [recipes, setRecipes] = useState([]);
+
+  const openDetails = (id) => {
+    navigate(`/${id}/information`);
   };
 
-  // useEffect(() => {
-  //   const data = async () => {
-  //     try { 
-  //       const response = await axios.get(url);
-  //       setRecipes(response.results);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   data();
-  // });
+  useEffect(() => {
+    const data = async () => {
+      try { 
+        const response = await axios.get(url);
+        console.log("Response", response);
+        setRecipes(response.data.results);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    data();
+  }, [url]);
   
-  // useEffect(() => {
-  //   console.log(recipes);
-  // }, [recipes]);
+  useEffect(() => {
+    console.log(recipes);
+  }, [recipes]);
 
   return (
     <div className={classes.mainContainer}>
       <Container maxWidth="xl" className={classes.container}>
-        <Grid spacing={3} className={classes.mainGrid}>
-          {/* {recipes.map(({recpie, id}) => ( */}
-            <Grid item xs={12} sm={12} md={6} lg={3} className={classes.cardGrid}>
-              
-            <ButtonBase component="span" name="test" onClick={openDetails}>
+        <Grid className={classes.mainGrid}>
+          {recipes && recipes.map((recipe) => (
+            <Grid key={recipe.id} item xs={12} sm={12} md={6} lg={3} className={classes.cardGrid}>
+            <ButtonBase component="span" name="test" onClick={() => openDetails(recipe.id)}>
                 <Card className={classes.card} raised elevation={6}>
                   <CardMedia
-                    image='https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFzdGF8ZW58MHx8MHx8fDA%3D'
+                    image={recipe.image}
                     className={classes.media}
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
-                      Pasta
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      Pasta is a type of starchy food that is made from flour,
-                      water, and eggs, and then formed into sheets or other
-                      shapes. The dough is usually made from semolina, which
-                      comes from the endosperm of durum wheat, and contains a
-                      lot of gluten.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </ButtonBase>
-
-              <ButtonBase component="span" name="test" onClick={openDetails}>
-                <Card className={classes.card} raised elevation={6}>
-                  <CardMedia
-                    image='https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFzdGF8ZW58MHx8MHx8fDA%3D'
-                    className={classes.media}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Pasta
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      Pasta is a type of starchy food that is made from flour,
-                      water, and eggs, and then formed into sheets or other
-                      shapes. The dough is usually made from semolina, which
-                      comes from the endosperm of durum wheat, and contains a
-                      lot of gluten.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </ButtonBase>
-
-              <ButtonBase component="span" name="test" onClick={openDetails}>
-                <Card className={classes.card} raised elevation={6}>
-                  <CardMedia
-                    image='https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFzdGF8ZW58MHx8MHx8fDA%3D'
-                    className={classes.media}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Pasta
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      Pasta is a type of starchy food that is made from flour,
-                      water, and eggs, and then formed into sheets or other
-                      shapes. The dough is usually made from semolina, which
-                      comes from the endosperm of durum wheat, and contains a
-                      lot of gluten.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </ButtonBase>
-
-              <ButtonBase component="span" name="test" onClick={openDetails}>
-                <Card className={classes.card} raised elevation={6}>
-                  <CardMedia
-                    image='https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFzdGF8ZW58MHx8MHx8fDA%3D'
-                    className={classes.media}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Pasta
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      Pasta is a type of starchy food that is made from flour,
-                      water, and eggs, and then formed into sheets or other
-                      shapes. The dough is usually made from semolina, which
-                      comes from the endosperm of durum wheat, and contains a
-                      lot of gluten.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </ButtonBase>
-
-              <ButtonBase component="span" name="test" onClick={openDetails}>
-                <Card className={classes.card} raised elevation={6}>
-                  <CardMedia
-                    image='https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFzdGF8ZW58MHx8MHx8fDA%3D'
-                    className={classes.media}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Pasta
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      Pasta is a type of starchy food that is made from flour,
-                      water, and eggs, and then formed into sheets or other
-                      shapes. The dough is usually made from semolina, which
-                      comes from the endosperm of durum wheat, and contains a
-                      lot of gluten.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </ButtonBase>
-
-              <ButtonBase component="span" name="test" onClick={openDetails}>
-                <Card className={classes.card} raised elevation={6}>
-                  <CardMedia
-                    image='https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFzdGF8ZW58MHx8MHx8fDA%3D'
-                    className={classes.media}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Pasta
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      Pasta is a type of starchy food that is made from flour,
-                      water, and eggs, and then formed into sheets or other
-                      shapes. The dough is usually made from semolina, which
-                      comes from the endosperm of durum wheat, and contains a
-                      lot of gluten.
-                    </Typography>
-                  </CardContent>
-                </Card>
-              </ButtonBase>
-
-              <ButtonBase component="span" name="test" onClick={openDetails}>
-                <Card className={classes.card} raised elevation={6}>
-                  <CardMedia
-                    image='https://images.unsplash.com/photo-1621996346565-e3dbc646d9a9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cGFzdGF8ZW58MHx8MHx8fDA%3D'
-                    className={classes.media}
-                  />
-                  <CardContent className={classes.content}>
-                    <Typography gutterBottom variant="h5" component="h2">
-                      Pasta
-                    </Typography>
-                    <Typography variant="subtitle2">
-                      Pasta is a type of starchy food that is made from flour,
-                      water, and eggs, and then formed into sheets or other
-                      shapes. The dough is usually made from semolina, which
-                      comes from the endosperm of durum wheat, and contains a
-                      lot of gluten.
+                      {recipe.title}
                     </Typography>
                   </CardContent>
                 </Card>
               </ButtonBase>
             </Grid>
-          {/* ))} */}
-        
+          ))} 
         </Grid>
       </Container>
     </div>

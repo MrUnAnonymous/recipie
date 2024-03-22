@@ -11,7 +11,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route exact path="/" element={ <Home /> } />
-          <Route exact path="/:id/information" element={ <RecipieDetails /> } />
+          <Route path="/:id/information" element={ <RecipieDetails /> } />
         </Routes>
       </Container>
     </BrowserRouter>
